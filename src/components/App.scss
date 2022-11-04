@@ -1,0 +1,48 @@
+/*
+Template Name: Bako
+Version: 1.0.0
+Author: PxlSolutions
+Author URI: http://themeforest.net/user/pxlsolutions
+Description: Personal Portfolio & Resume HTML Template
+
+[TABLE OF CONTENTS]
+
+01. Base
+02. Typography
+03. Header
+04. Skills
+05. Portfolio
+06. Clients
+07. Blog
+08. Helper
+09. Buttons
+10. Preloader
+11. Bootstrap Elements
+12. Theme Elements
+13. Slick Settings
+14. Responsive Settings
+
+*/
+
+$fontstack: 'Poppins', sans-serif;
+$fontbody: 'Open Sans', sans-serif;
+$colordefault: #000;
+$colorblue: #4A63E7;
+$colororange: #FF5959;
+
+@mixin transition($second) {
+  -webkit-transition: all $second ease-in-out;
+    -moz-transition: all $second ease-in-out;
+        transition: all $second ease-in-out;
+}
+
+
+@import "~bootstrap/scss/bootstrap";
+@import "../sass/base";
+
+
+
+
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+

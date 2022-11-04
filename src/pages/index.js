@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import Layout from '../components/layout';
-
+import Logo from "../images/bootcamp.png"
 
 const encode = data => {
   return Object.keys(data)
@@ -11,9 +11,11 @@ const encode = data => {
 
 const Form = () => {
   const [submitted, setSubmitted] = useState("")
-  const [name, setName] = useState("")
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
-  const [message, setMessage] = useState("")
+  const [phone, setPhone] = useState("")
+  const [business, setBusiness] = useState("")
   const [submitting, setSubmitting] = useState(false)
 
   const handleSubmit = e => {
@@ -21,7 +23,7 @@ const Form = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "waitlist", name, email, message }),
+      body: encode({ "form-name": "waitlist", firstName, lastName, email, phone, business }),
     })
       .then(() => {
         setSubmitting(false)
@@ -44,90 +46,163 @@ const Form = () => {
 
   if (submitted) {
     return (
-      <div className="transition ease-in-out duration-300 pb-10 m-auto bg-white text-center pt-20 success">
-        <p className="text-main-color">
-          Thank you for joining our waiting list.
-        </p>
-      </div>
+      <Layout>
+          <nav class="navbar navbar-expand-md ">
+              <div class="container center">
+              <img class="navbar-brand" src={Logo} />
+              </div>
+          </nav>
+          <div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-8 ">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">  <h2>Thank You, {firstName}! </h2>
+                </div>
+                <div class="card-body text-center">
+              <p><h5> Your confirmation email has been sent to </h5></p>
+              <p>{email}</p>
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+        </Layout>
     )
   }
 
   return (
-        <form
-          onSubmit={handleSubmit}
-          name="waitlist"
-          className="mt-4 m-auto p-8 md:p-0 max-w-md lg:max-w-lg py-6"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
+    <Layout>
+    <nav class="navbar navbar-expand-md ">
+    <div class="container center">
+      
+        <img class="navbar-brand" src={Logo} />
+     
+    </div>
+</nav>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Registration Form</h1>
+        <p class="lead text-muted mb-0">District 9 Small Business Bootcamp</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col ">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-lg-8 ">
+            <div class="card">
+                <div class="card-header bg-primary text-white"><i class="fa fa-user"></i> Personal Information
+                </div>
+                <div class="card-body">
+                <form
+                  onSubmit={handleSubmit}
+                  name="waitlist"
+                  className="mt-2 m-auto p-8 md:p-0 max-w-md lg:max-w-lg py-6"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field">
+
           <input type="hidden" name="form-name" value="waitlist" />
-          <div className="text-center text-4xl font-bold text-main-color leading-tight">
-            Join the waitlist now!
-            <h2 className="text-center text-xl font-semibold text-main-color">
-              Please fill out the form below.
-            </h2>
+           <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-6 col-form-label">First Name</label>
+    <div class="col-sm-12">
+    <input  className='form-control' 
+            id="validationCustom01" 
+            type="text" 
+            onChange={({ target }) => setFirstName(target.value)}
+            name="firstName"
+            value={firstName}
+            minLength="5"
+            placeholder="First Name"required/>    </div>
           </div>
 
-          <div className="mb-4 mt-4">
-            <label
-              htmlFor="name"
-              className="block text-gray-800 text-sm font-bold mb-2"
-            >
-              Your Name:{" "}
-            </label>
-            <input
-              onChange={({ target }) => setName(target.value)}
-              type="text"
-              name="name"
-              value={name}
-              minLength="5"
-              placeholder="e.g Morenike Martins-Brown"
-              className="bg-gray-200 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-medium"
-            />
+          <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-6 col-form-label">Last Name</label>
+    <div class="col-sm-12">
+    <input  className='form-control' 
+            id="validationCustom01" 
+            type="text" 
+            onChange={({ target }) => setLastName(target.value)}
+            name="lastName"
+            value={lastName}
+            minLength="5"
+            placeholder="Last Name" required/> </div>
           </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-gray-800 text-sm font-bold mb-2"
-            >
-              Your Email:
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              required
-              onChange={({ target }) => setEmail(target.value)}
-              placeholder="e.g morenike@hey.com"
-              className="bg-gray-200 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-medium"
-            />
+          <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-6 col-form-label">Phone</label>
+    <div class="col-sm-12">
+    <input  className='form-control' 
+            id="validationCustom01" 
+            type="tel" 
+            onChange={({ target }) => setPhone(target.value)}
+            name="phone"
+            value={phone}
+            minLength="5"
+            placeholder="Phone" required/> </div>
+          </div>
+          <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-6 col-form-label">Email</label>
+    <div class="col-sm-12">
+    <input  className='form-control' 
+            id="validationCustom01" 
+            type="email" 
+            onChange={({ target }) => setEmail(target.value)}
+            name="email"
+            value={email}
+            minLength="5"
+            placeholder="Email" required/> </div>
+          </div>
+          <div class="row mb-3">
+    <label for="inputEmail3" class="col-sm-6 col-form-label">Name of Business</label>
+    <div class="col-sm-12">
+    <input  className='form-control' 
+            id="validationCustom01" 
+            type="text" 
+            onChange={({ target }) => setBusiness(target.value)}
+            name="business"
+            value={business}
+            minLength="5"
+            placeholder="Business Name" required/> </div>
           </div>
 
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-gray-800 text-sm font-bold mb-2 mt-4"
-            >
-              Anything else you would like to know (optional)
-            </label>
-            <textarea
-              name="message"
-              placeholder="e.g When do you plan on launching?"
-              rows="5"
-              onChange={({ target }) => setMessage(target.value)}
-              value={message}
-              className="bg-gray-200 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-medium"
-            ></textarea>
-          </div>
-          <p className="text-center mt-6 pb-10">
-            <button
-              type="submit"
-              className="font-bold p-3 rounded-md header-main-color header-text-main-color text-white focus:outline-none transition duration-300 ease-in-out w-full lg:w-3/4"
-            >
-              Join waitlist
-            </button>
-          </p>
+          <button class="btn btn-primary" type="submit">Send</button>
+          
         </form>
+   
+                </div>
+            </div>
+            
+        </div>
+        <div class="col col-sm-12 col-lg-4 ">
+            <div class="card bg-light ">
+                <div class="card-header bg-success text-white text-uppercase"><i class="fa fa-home"></i> Contact</div>
+                <div class="card-body">
+                    <h6>Miami-Dade County: District 9 Commissioner's Office</h6>
+                    <p>Email: district9@miamidade.gov</p>
+                </div>
+                <div class="card-body">
+                <h6>Tools For Change</h6>
+                    <p>Phone: 305-200-5568</p>
+                  
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+{/* <!-- Footer --> */}
+
+  </Layout>
+      
   )
 }
 
