@@ -60,7 +60,7 @@ const Form = () => {
 		<div class="row">
 			<div class="col-md-6 content1-left">
 				<h3>Small Business Bootcamp <br/> Introductory Meeting </h3>
-			<p><b>Date: </b>Thursday, January 24, 2023  </p>
+			<p><b>Date: </b>Tuesday, January 24, 2023  </p>
       <p><b>Time: </b>06:00 PM</p>
       <p><b>Link: </b> <a href='https://us06web.zoom.us/j/85936894243?pwd=MUNYNnVYdmNGNkhwbmNncDA5SHRXQT09'>https://us06web.zoom.us/j/85936894243?pwd=MUNYNnVYdmNGNkhwbmNncDA5SHRXQT09</a>
 </p>
