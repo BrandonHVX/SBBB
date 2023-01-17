@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "District 9: Small Business Bootcamp",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Small Business Bootcamp",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Brandon Gines <brandongines@gmail.com>",
   "dependencies": {
     "bootstrap": "^5.2.2",
     "gatsby": "^4.24.6",
