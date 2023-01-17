@@ -46,26 +46,40 @@ const Form = () => {
 
   if (submitted) {
     return (
-      <Layout>
-          <nav class="navbar navbar-expand-md ">
-              <div class="container center">
-              <img class="navbar-brand" src={Logo} />
-              </div>
-          </nav>
-          <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-lg-8 ">
-            <div class="card">
-                <div class="card-header bg-primary text-white text-center">  <h2>Thank You, {firstName}! </h2>
-                </div>
-                <div class="card-body text-center">
-              <p><h5> Your confirmation email has been sent to </h5></p>
-              <p>{email}</p>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
+      <Layout> 
+        <img class="navbar-brand" src={Logo} />
+        <div class="container-fluid home-main">
+        <h2>  
+  </h2>
+		<h2> Welcome, {firstName}
+ </h2>Thanks for signing up for the District 9: Small Business Bootcamp! We couldn't be more thrilled to
+ have you as a student. 
+  
+  </div>
+	<div class="container-fluid home-content1">
+		<div class="row">
+			<div class="col-md-6 content1-left">
+				<h3>Small Business Bootcamp <br/> Introductory Meeting </h3>
+			<p><b>Date: </b>Thursday, January 24, 2023  </p>
+      <p><b>Time: </b>06:00 PM</p>
+      <p><b>Link: </b> <a href='https://us06web.zoom.us/j/85936894243?pwd=MUNYNnVYdmNGNkhwbmNncDA5SHRXQT09'>https://us06web.zoom.us/j/85936894243?pwd=MUNYNnVYdmNGNkhwbmNncDA5SHRXQT09</a>
+</p>
+
+<p>
+
+<p><b>Meeting ID:</b> 859 3689 4243 </p>
+<p><b>Passcode: </b> 645483 </p>
+
+
+
+        </p>
+				 <div class="content1-left"></div>
+			</div>
+		
+		</div>
+	</div>
+	<div class="container-fluid home-content2">
+	</div>
         </Layout>
     )
   }
